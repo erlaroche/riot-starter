@@ -36,24 +36,20 @@
 // }
 
 
-//cannot get the following trigger events to work :(
+//got the following trigger events to work
 // var weather = $.observable({});
 
 // weather.on('snow-storm', function () {
-//   alert('Bring your coats');
+//   alert('Bring your gloves and a coat!');
 // });
 
 // weather.on('tornado', function () {
-//   alert('Everybody panic!');
+//   alert('Head for a cellar and avoid getting sucked into OZ!');
 // });
 
-// weather.trigger('snow-storm', function () {
-//   alert('Bring your coats and gloves!');
-// });
+// weather.trigger('snow-storm');
 
-// weather.trigger('tornado', function () {
-//   alert('Find a nice cellar and avoid andy trips to OZ.');
-// });
+// weather.trigger('tornado');
 
 
 

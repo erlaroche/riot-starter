@@ -89,3 +89,34 @@
 // for (var i = 0; i < 10; i += 1) {
 //   fireEater.eatFire();
 // }
+
+
+
+var stock = $.observable({
+  price: 99,
+  update: function () {
+    // Change price by -1, 0, or 1
+    this.price += parseInt(Math.random() * 3, 10) - 1;
+    // TODO: TRIGGER CHANGE WITH PRICE
+  }
+});
+
+stock.on('price-change', function (price) {
+  if (price > 100) {
+    console.log('Too expensive:', price);
+  }
+  else if (price < 100) {
+    console.log('Too cheap:', price);
+  }
+  else {
+    console.log('Just right!', price);
+  }
+});
+
+setInterval(function () {
+  stock.update();
+}, 1000);
+
+stock.trigger('price-change', 5000);
+stock.trigger('price-change', 5);
+stock.trigger('price-change', 100);

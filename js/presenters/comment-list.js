@@ -11,6 +11,9 @@
   $root.on('click', '.like', function (e) {
     console.log('Like link was clicked:', this);
     // TODO: Tell the comments model to like the comment
+    var commentId = $(this).closest('.comment').data('id');
+    console.log("Data id is:" + commentId);
+    comments.like(commentId);
   });
 
   // // // // // // //
@@ -26,13 +29,12 @@
   });
 
   comments.on('like', function (comment) {
+    event.preventDefault();
     console.log('Comment was liked:', comment.id);
     var commentDiv = $('[data-id=' + comment.id + ']');
     // TODO: Update the like count for the liked comment
-    // this is where I left off.. like still does not work
-    // $('.comment').on("click", ".like" function(e){
-      
-    // })
+
+    $root.find(commentDiv).find('.like-count').text(comment.likes)
   });
 
 })();
